@@ -8,6 +8,9 @@ import java.util.Date;
 
 public class DateTest {
 	public static void main(String[] args) {
+		float d=(float)3/5;
+		int canUseH = (int) (1476 * 704/2048);
+		System.out.println(""+d+","+canUseH);
 //		Date date=DateFormat.;
 		String dateStr="20161218";
 		DateFormat dateFormat=new SimpleDateFormat("yyyyMMdd");
