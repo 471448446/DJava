@@ -1,5 +1,6 @@
 package test;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
  * http://www.oschina.net/code/snippet_1021818_47946
@@ -131,5 +132,17 @@ public class Validator {
         String username = "fdsdfsdj";
         System.out.println(Validator.isUsername(username));
         System.out.println(Validator.isChinese(username));
+        Exception e=new Exception("error:502;");
+        Matcher mCode = Pattern.compile("error:\\d+"+";").matcher(e.getMessage());
+//        log(String.valueOf(mCode.find()));
+        if (mCode.find()){
+        	Matcher code=Pattern.compile("\\d+").matcher(e.getMessage());
+        	if(code.find()){
+        		log(code.group());        		
+        	}
+        }
+    }
+    private static void log(String msg){
+    	System.out.println(msg);
     }
 }
