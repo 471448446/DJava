@@ -1,4 +1,8 @@
 package test;
+import common.Utils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PatternTest {
 	//电话格式
@@ -8,5 +12,20 @@ public class PatternTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.print("17000141846".matches(pattern));
+		Utils.log(regexFindNum("1999年"));
+	}
+	/**
+	 * @param string 匹配的数字字符串
+	 * @return 用于 需要XXX分钟支付
+	 */
+	public static String regexFindNum(String string) {
+		String regex="\\d+";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(string);
+		String res = string;
+		while (matcher.find()) {
+			res = matcher.group();
+		}
+		return res;
 	}
 }
