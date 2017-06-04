@@ -25,12 +25,12 @@ public class OrdereUnRepeat {
 		set.add(3);
 		map.put(2, "×Ö¶Î2");
 		map.put(3, "×Ö¶Î3");
-		print("add 2 3",set);
+		print("insert 2 3",set);
 		printMap(map);
 		
 		set.add(3);
 		map.put(2, "×Ö¶Î3");
-		print("again add 3 ºó",set);
+		print("again insert 3 ºó",set);
 		printMap(map);
 		
 		set.remove(2);
@@ -39,7 +39,7 @@ public class OrdereUnRepeat {
 		printMap(map);
 		set.add(2);
 		map.put(2, "×Ö¶Î2");
-		print("add 2",set);
+		print("insert 2",set);
 		printMap(map);
 		set.remove(100);
 	}

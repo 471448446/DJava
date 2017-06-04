@@ -11,7 +11,7 @@ public class Test {
 		ArrayList<Children> list=new ArrayList<Children>();
 		Children children=new Children();
 		list.add(children);
-//		add(list);
+//		insert(list);
 		add(children);
 	}
 	public void add(ArrayList<Parent> list){
