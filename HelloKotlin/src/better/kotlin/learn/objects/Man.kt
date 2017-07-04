@@ -8,7 +8,7 @@ import better.kotlin.log
  * 子类的构造函数，初始化时必须要初始化分类的某一个
  * Created by better on 2017/5/30.
  */
-class Man(var ok: Boolean, /*这里为什么不能在此申明主构造函数？？*/name: String, sex: Int, age: Int) : Persion(name, sex, age), HunmanAction {
+class Man(var ok: Boolean, /*这里为什么不能在此申明主构造函数？？*/name: String, sex: Sex, age: Int) : Person(name, sex, age) {
     /**
      * 车子可以没有
      */
@@ -29,13 +29,26 @@ class Man(var ok: Boolean, /*这里为什么不能在此申明主构造函数？
             log("给man 买一个车==>$car")
         }
 
-    constructor(name: String) : this(true, name, 1, 0)
+    constructor(name: String) : this(true, name, Sex.man, 0)
 
     fun buyCar(newCar: Car) {
         this.car = newCar
     }
 
     override fun talk(msg: String) {
+        super<Person>.talk(msg)
         println("man talk:" + msg)
+    }
+
+    class Chicken1 {
+        var cName: String? = null
+    }
+
+    /**
+     * 内部类可以使用父类的对象
+     */
+    inner class Chicken2 {
+        var cName: String? = name
+
     }
 }

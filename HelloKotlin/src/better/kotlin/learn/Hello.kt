@@ -1,8 +1,7 @@
 package better.kotlin.learn
 
-import better.kotlin.learn.objects.Man
-import better.kotlin.learn.objects.Persion
 import better.kotlin.learn.bean.Car
+import better.kotlin.learn.objects.*
 import better.kotlin.log
 import better.kotlin.logEnd
 import better.kotlin.logStart
@@ -28,31 +27,38 @@ private fun Man.runExtend(mileal: Double): Unit {
     log("扩展方法 man peopleRun " + mileal)
 }
 
-private fun Persion.runExtend(mileal: Double): Unit {
-    log("扩展方法 Persion peopleRun " + mileal)
+private fun Person.runExtend(mileal: Double): Unit {
+    log("扩展方法 Person peopleRun " + mileal)
 }
 
 /**
  * 扩展不支持多态
  */
-private fun peopleRun(p: Persion, mileal: Double) {
+private fun peopleRun(p: Person, mileal: Double) {
     p.runExtend(mileal)
 }
 
 fun testPersion() {
-    logStart("Persion")
+    logStart("Person")
 
-    var persion: Persion = Persion("张三", 0, 10)
+    var person: Person = Person("张三", Sex.man, 10)
     var man: Man = Man("李四")
+
+    man.addTalkListener(object : TalkListener {
+        override fun onTalk(msg: String) {
+            log("接收到回调：" + msg)
+        }
+
+    })
 
     var car: Car = Car("宝马", 10.0)
     log("准备了一个车子：" + car.toString())
     man.buyCar(car)
     man.talk("我刚刚买了一个车")
     peopleRun(man, 1.0)
+    log(person.toString())
 
-    log(persion.toString())
-    logEnd("Persion")
+    logEnd("Person")
 }
 
 fun testWhen() {

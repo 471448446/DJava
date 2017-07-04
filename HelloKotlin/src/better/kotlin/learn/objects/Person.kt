@@ -4,7 +4,9 @@ package better.kotlin.learn.objects
  * 主构造函数，相当于申明了类的属性
  * Created by better on 2017/5/30.
  */
-open class Persion constructor(var name: String, var sex: Int, age: Int) {
+open class Person constructor(var name: String, var sex: Sex, age: Int) : HunmanAction {
+
+
     /**
      * 申明可变属性，还必须要初始化,否则就abstract
      */
@@ -30,11 +32,24 @@ open class Persion constructor(var name: String, var sex: Int, age: Int) {
      */
     private var tag: Long = 10
 
-    constructor(name: String, sex: Int, age: Int, tag: String) : this(name, sex, age)
+    var talkListener: MutableList<TalkListener> = mutableListOf()
 
-    constructor(tag: String) : this("default", 1, 0)
+    constructor(name: String, sex: Int, age: Int, tag: String) : this(name, Sex.man, age)
+
+    constructor(tag: String) : this("default", Sex.man, 0)
 
     override fun toString(): String {
         return "name:$name,sex:$sex"
     }
+
+    override fun talk(msg: String) {
+        for (talkListenerItem in talkListener) {
+            talkListenerItem.onTalk("talkListener"+msg)
+        }
+    }
+
+    fun addTalkListener(talk: TalkListener) {
+        talkListener.add(talk)
+    }
+
 }
