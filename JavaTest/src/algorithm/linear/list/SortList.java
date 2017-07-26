@@ -1,4 +1,4 @@
-package algorithm.list;
+package algorithm.linear.list;
 
 import java.util.Arrays;
 

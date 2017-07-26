@@ -1,6 +1,4 @@
-package algorithm.queue;
-
-import java.util.Queue;
+package algorithm.linear.queue;
 
 /**
  * Created by better on 2017/4/27.

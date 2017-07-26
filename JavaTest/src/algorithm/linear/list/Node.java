@@ -1,4 +1,4 @@
-package algorithm.list;
+package algorithm.linear.list;
 
 /**
  * Created by better on 2017/4/18.

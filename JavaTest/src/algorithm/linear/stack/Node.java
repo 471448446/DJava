@@ -1,4 +1,4 @@
-package algorithm.stack;
+package algorithm.linear.stack;
 
 /**
  * Created by better on 2017/4/26.

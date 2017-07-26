@@ -1,4 +1,4 @@
-package algorithm.list;
+package algorithm.linear.list;
 
 /**
  * 链试存储结构 java中 ArrayList是用的一个数组来维护，顺序存储结构

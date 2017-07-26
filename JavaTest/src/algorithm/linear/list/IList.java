@@ -1,4 +1,4 @@
-package algorithm.list;
+package algorithm.linear.list;
 
 /**
  * 链表的基本操作

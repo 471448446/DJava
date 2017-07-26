@@ -1,4 +1,4 @@
-package algorithm.stack;
+package algorithm.linear.stack;
 
 /**
  * Õ»--¡·µÝ¹é£¿
