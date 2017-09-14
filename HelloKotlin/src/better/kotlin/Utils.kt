@@ -9,6 +9,10 @@ fun log(a: String) {
     println(a)
 }
 
+fun logPart(a: String) {
+    println("____{$a}____")
+}
+
 fun logStart(a: String) {
     println(a + " start")
 }

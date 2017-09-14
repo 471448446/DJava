@@ -1,6 +1,6 @@
 package better.kotlin.learn.objects
 
-import better.kotlin.learn.bean.Car
+import better.kotlin.learn.objects.bean.Car
 import better.kotlin.log
 
 /**

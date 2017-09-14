@@ -1,4 +1,4 @@
-package better.kotlin.learn.bean
+package better.kotlin.learn.objects.bean
 
 /**
  * Created by better on 2017/6/4.

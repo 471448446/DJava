@@ -1,10 +1,13 @@
 package better.kotlin.learn
 
-import better.kotlin.learn.bean.Car
+import better.kotlin.learn.objects.bean.Car
+import better.kotlin.learn.delegation.showDelegationClassTest
+import better.kotlin.learn.delegation.showDelegationProperty
 import better.kotlin.learn.objects.*
 import better.kotlin.log
 import better.kotlin.logEnd
 import better.kotlin.logStart
+import better.kotlin.learn.extenion.*
 
 /**
  * 可以直接定义一个main函数运行而
@@ -16,11 +19,119 @@ fun main(args: Array<String>) {
     println("Hello Kotlin")
     println("结果=" + sum(1, 2))
     testBoolean()
+    testVarVal()
     testArray()
     testString()
     testIf()
     testWhen()
     testPersion()
+    testExtendMethod()
+    testOther_Equal()
+    testOther_Cast(null)
+    testOther_Null(null)
+    testObject_Delegation()
+}
+
+fun testObject_Delegation() {
+    log("testObject_Delegation")
+    showDelegationClassTest()
+    showDelegationProperty()
+}
+
+fun testExtendMethod() {
+    log("testExtend___")
+    testExtendFun()
+}
+
+/**
+ * 定义的时候指定可不可以null。
+ * 访问访问null的对象
+ *
+ */
+fun testOther_Null(nothing: Nothing?) {
+    logStart("testOther_Null_____")
+
+    var a: String = "a"
+    /*
+    * a = null
+    *
+    * null cannot be a value of non-null type String
+    * a定义的时候就明确表示不能为null
+     */
+    var b: String?
+    b = null
+    // 1 判断b是否null
+    if (null != b) {
+        log(b)
+    }
+    //2 ?. delegationB 如果null就返回null
+    log("delegationB length=" + b?.length)
+    //3 ?.let只有b不null的时候执行
+    b?.let {
+        log(it)
+        /*
+         * 这样是不行的。因为b是变量，可以被其他地方改变
+         * Kotlin: Smart cast to 'String' is impossible, because 'delegationB' is a local variable that is captured by a changing closure
+         * https://stackoverflow.com/questions/34498562/in-kotlin-what-is-the-idiomatic-way-to-deal-with-nullable-values-referencing-o
+         */
+        //        log(delegationB)
+    }
+    // 4 ?: 条件执行
+    val c = b?.length ?: -1
+    log("delegationB length=" + c)
+    //5 b要是null就抛异常
+    try {
+        var a = nothing!!
+        log("得到a="+a)
+        val bCopy = b!!.length
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+/**
+ * 判断类型：is、!is
+ * 类型转换：as、as?
+ */
+fun testOther_Cast(p: Any?) {
+    logStart("testOther_Cast____")
+
+    when (p) {
+        null -> log("输入 参数 null")
+    }
+
+    var a: Int = 1
+    try {
+        val str: String = a as String
+        log("__" + str)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    val str: String? = p as String?
+    log("2__" + str)
+
+    val str3: Int? = p as? Int?
+    log("3__" + str3)
+
+}
+
+/**
+ * null cannot be cast to non-null type
+ */
+fun testOther_Equal() {
+    var a: Int? = null
+    var b: Int? = null
+    var c = 1
+    var d2 = 2
+    var d1 = 1
+    log("引用相等 null vs null:" + (a === b))
+    log("引用相等 null vs 1:" + (a === c))
+    log("引用相等 1 vs 1:" + (c === d1))
+    log("引用相等 1 vs 2:" + (c === d2))
+    log("结构相等 null vs null:" + (a == b))
+    log("结构相等 null vs 1:" + (a == c))
+    log("结构相等 1 vs 1:" + (c === d1))
+    log("结构相等 1 vs 2:" + (c == d2))
 }
 
 private fun Man.runExtend(mileal: Double): Unit {
@@ -62,6 +173,7 @@ fun testPersion() {
 }
 
 fun testWhen() {
+
     logStart("testWhen")
     var all = 3
     while (all > 0) {
@@ -78,7 +190,7 @@ fun testWhen() {
             20
         }
     }
-    log("b=$b")
+    log("delegationB=$b")
     logEnd("testWhen")
 }
 
@@ -132,6 +244,15 @@ fun testArray() {
 
 }
 
+fun testVarVal() {
+
+    log("testVarVal___")
+    var a = 1
+    val aVal = 1
+// 不能修改
+//    aVal =2
+}
+
 fun testBoolean() {
     var isSuccess = true
     var isFail = false
@@ -151,4 +272,3 @@ fun sum(a: Int, b: Int): Int {
     var result = a + b;
     return r;
 }
-

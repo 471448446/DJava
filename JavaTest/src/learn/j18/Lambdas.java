@@ -8,7 +8,7 @@ import common.Utils;
  * Created by better on 2017/6/14.
  */
 
-public class Lamda {
+public class Lambdas {
     interface Action {
         void onTalk();
     }
