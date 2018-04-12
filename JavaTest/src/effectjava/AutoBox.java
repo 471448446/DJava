@@ -7,8 +7,8 @@ public class AutoBox {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Integer integer1 = 100;  
-		Integer integer2 = 100;  
+		Integer integer1 = 100;
+		Integer integer2 = 100;
 		System.out.println("integer1==integer2: " + (integer1 == integer2));// true  自动装箱的两个缓存中的 Integer对象的引用比较  
 		System.out.println("integer1.equals(integer2): " + (integer1.equals(integer2)));// true  
 		System.out.println("integer1.compare(integer2): " + integer1.compareTo(integer2));// 0      
