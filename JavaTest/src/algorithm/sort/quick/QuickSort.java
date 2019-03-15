@@ -28,6 +28,8 @@ public class QuickSort {
 
     private static int partition(int[] array, int left, int right) {
         int pivotValue = array[left];
+        final int L = left;
+        final int R = right;
         while (left < right) {
             //找当前数组右边的小值，移动到左边
             while (left < right && pivotValue <= array[right]) {
@@ -41,6 +43,7 @@ public class QuickSort {
             array[right] = array[left];
         }
         array[left] = pivotValue;
+        SortUtil.logArray(L + "-" + R, array);
         return left;
     }
 
