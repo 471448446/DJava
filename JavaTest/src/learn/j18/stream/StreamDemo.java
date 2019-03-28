@@ -2,9 +2,7 @@ package learn.j18.stream;
 
 import common.Utils;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -32,5 +30,21 @@ public class StreamDemo {
         "abc".chars().forEach(Utils::log);
         Utils.log("String Stream ", "a,b,c");
         Pattern.compile(",").splitAsStream("a,b,c").forEach(Utils::log);
+
+        // 其实数据是位置1，2
+        int[] originNums = new int[]{1, 3, 4, 0, 10, 2};
+        Utils.log("reduce 1", "input", Utils.toString(originNums));
+        OptionalInt result = Arrays.stream(originNums).reduce((left, right) -> {
+            Utils.log("reduce 1", "left:" + left, "right:" + right);
+            return left + right;
+        });
+        Utils.log("reduce 1", result.getAsInt());
+        //起始数据是位置1，默认值是identity
+        Utils.log("reduce 2", "input", Utils.toString(originNums));
+        int r = Arrays.stream(originNums).reduce(10, (left, right) -> {
+            Utils.log("reduce 2", "left:" + left, "right:" + right);
+            return left + right;
+        });
+        Utils.log("reduce 2", r);
     }
 }
