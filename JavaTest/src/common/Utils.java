@@ -14,6 +14,15 @@ public class Utils {
         System.out.println(msg);
     }
 
+    public static void logMethodS(String msg) {
+        log(msg, "____start_____");
+    }
+
+    public static void logMethodE(String msg) {
+        log(msg, "____end_____");
+
+    }
+
     public static void log(Object... msg) {
         System.out.println(TextUtil.join(",", msg));
     }
