@@ -22,10 +22,13 @@ public class StreamDemo {
 
     private static void terminal() {
         Utils.logMethodS("terminal");
-
+        // 统计
+        //一些产生统计结果的收集器也非常有用。它们主要用于int、double、long等基本类型上，它们可以用来产生类似如下的统计结果
         count();
         max();
         min();
+        summary();
+
         // 遍历
         foreach();
         foreachOrder();
@@ -116,6 +119,13 @@ public class StreamDemo {
                 Stream.of(1, 2, 3)
                         .min((o1, o2) -> o1.compareTo(o2));
         Utils.log("min of Stream", o.get());
+
+    }
+
+    private static void summary() {
+        // 一次性获取这些统计信息
+        IntSummaryStatistics intSummaryStatistics = Stream.of(1, 2).mapToInt(x -> x).summaryStatistics();
+        Utils.log("min of Stream", intSummaryStatistics.toString());
     }
 
     private static void count() {
