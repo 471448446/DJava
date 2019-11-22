@@ -9,6 +9,9 @@ fun main() {
     1. 是对集合中的每个元素进行一整套变换。
     2. 直到有结果操作请求时，才进行转换
     这个flow，带有协程的sequence
+    一般一个suspend 函数只返回一个被挂起的值，如何返回多个挂起的值就可以用flow，既返回多个异步值。这里定义成flow。
+    flow 中文意思是水流的意思，那么可以加一些列的操作，比如只取几个，进行转换。
+    https://github.com/Kotlin/kotlinx.coroutines/blob/master/docs/flow.md
      */
     runBlocking {
         val flow = (1..5).asFlow()
