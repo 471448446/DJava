@@ -5,10 +5,14 @@ package better.kotlin.functional
  */
 // extension inheritance
 open class A {
+    private val name = "AA"
+    private fun fuck() = "AA"
+    val age = 20
     open fun name() = "super call A()"
 }
 
-fun A.speak() = "A extension"
+// 不能访问private的members
+fun A.speak() = "A extension$age"
 
 open class B : A() {
     override fun name() = "child call A()"
@@ -18,6 +22,7 @@ fun B.speak() = "BBB extension"
 
 fun method1(a: A) = a.name()
 fun method2(a: A) = a.speak()
+
 // extension as parameter
 
 fun main(args: Array<String>) {
