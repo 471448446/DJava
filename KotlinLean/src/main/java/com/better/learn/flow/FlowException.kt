@@ -8,7 +8,7 @@ import java.lang.Exception
 /**
  * 怎么处理flow带来的异常
  */
-fun main() {
+fun main(args: Array<String>) {
     runBlocking {
         try {
             (1..3).asFlow()

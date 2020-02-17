@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 /**
  * 怎么组合 flow数据
  */
-fun main() {
+fun main(args: Array<String>) {
     runBlocking {
         //=========================zip 将两个数组，按照对应的position组合成一个新的数组
         val flow1 = flowOf(1, 2, 3)

@@ -19,7 +19,7 @@ fun flowData() = flow {
  * flow的生成和消耗可能是两个个耗时的过程，怎样来加速。
  * 结论：如果要处理每个元素的话只有buffer了，如果可以丢掉一些元素不处理，那么conflate和collectLatest都行
  */
-fun main() {
+fun main(args: Array<String>) {
     runBlocking {
         //=========================buffer
         /*

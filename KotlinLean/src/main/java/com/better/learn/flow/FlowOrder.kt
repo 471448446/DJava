@@ -3,7 +3,7 @@ package com.better.learn.flow
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
-fun main() {
+fun main(args: Array<String>) {
     /*
     类似sequence
     1. 是对集合中的每个元素进行一整套变换。

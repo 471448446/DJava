@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
  *  flow 可以看出是异步的接受序列的值，既然是异步的可能就会延时。
  *  并没有想到者章用在哪个地方
  */
-fun main() {
+fun main(args: Array<String>) {
     runBlocking {
         //===========map 转换
         (1..3).asFlow()

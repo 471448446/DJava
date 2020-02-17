@@ -28,7 +28,7 @@ fun contextError() = flow {
     }
 }
 
-fun main() {
+fun main(args: Array<String>) {
     runBlocking {
         /*
         Flow的创建和请求调用必须再同一个Context
