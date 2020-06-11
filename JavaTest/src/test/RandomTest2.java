@@ -2,47 +2,25 @@ package test;
 
 import java.util.Random;
 
-public class RandomTest {
+public class RandomTest2 {
     private static Random random = new Random();
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        int max = 20;
-        int min = 0;
-
-        for (int i = 0; i < 20; i++) {
-            int s = random.nextInt(max) % (max - min + 1) + min;
-            System.out.println(s);
-        }
-        int i;
-        do {
-            i = random.nextInt(max) % (max - min + 1) + min;
-        } while (i != 19);
-//		for (int j = 0; j < max; j++) {
-//			int k=random.nextInt(max) % (max - min + 1) + min;
-//			if(k!=)
-//		}
-
-        System.out.println("自己的异常：");
-//        throw new IllegalStateException("不合法的异常");
         System.out.println("-----------------");
+        // 每一个的比重
         int[] percents = new int[]{100, 200, 200};
         int length = percents.length;
         int[] count = new int[length];
+        // 执行一万次
         for (int i1 = 0; i1 < 10000; i1++) {
             int randomWeight = randomWeight(percents);
-            count[randomWeight] = count[randomWeight] + 1;
+            count[randomWeight]++;
+            // 本次结果
 //            System.out.println("random weight " + randomWeight);
         }
         for (int j = 0; j < length; j++) {
             System.out.println("random weight " + percents[j] + " count:" + count[j]);
         }
-        /*
-        100, 200, 300
-          random weight 0 count:173
-          random weight 1 count:339
-          random weight 2 count:488
-         */
     }
 
     /**
