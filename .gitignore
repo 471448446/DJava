@@ -1,4 +1,4 @@
-﻿#/test/
+#/test/
 #/thinkinjava/
 #/Utils.class
 #/common/
@@ -11,6 +11,7 @@
 ## 我觉得这个也不要跟踪
 .idea
 */.gradle
+*/.idea
 
 # Compiled class file
 *.class
