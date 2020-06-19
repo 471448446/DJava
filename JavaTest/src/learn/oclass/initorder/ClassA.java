@@ -36,6 +36,10 @@ public class ClassA {
         l("构造函数");
     }
 
+    {
+        l("A 构造函数后面的代码块：" + mAFiled);
+    }
+
     public static void main(String[] args) {
         new ClassA();
     }
