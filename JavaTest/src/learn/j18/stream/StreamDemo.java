@@ -273,7 +273,7 @@ public class StreamDemo {
         Stream.<String>builder().add("a").add("b").build()
                 .forEach(v -> Utils.log("Stream.builder", v));
         //使用generate创建无限的流，但是限制了4次，不限制的话就一直发送数据源
-        Stream.generate(() -> "Hello").limit(4).forEach(value -> Utils.log("generate", value));
+        Stream.generate(() -> "MethodHandleDemo").limit(4).forEach(value -> Utils.log("generate", value));
         //使用iterate创建无限的流，但是限制了4次
         Stream.iterate(40, integer -> integer + 2).limit(4).forEach(value -> Utils.log("iterate", value));
 
