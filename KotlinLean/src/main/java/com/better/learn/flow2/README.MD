@@ -82,11 +82,11 @@ conflate() 和 collectLatest() 区别
 
 1. 命令式，在finally代码块中检测。`FlowDone_Finally.kt`
 2. 申明式，通过操作符onCompletion()监听。`FlowDone_Completion.kt`
-    * onCompletion 的主要优点是其 lambda 表达式的可空参数 Throwable 可以用于确定流收集是正常完成还是有异常发生
-    * 与 catch() 操作符的另一个不同点是 onCompletion 能观察到**所有异常并且仅在上游流成功完成**（没有取消或失败）的情况下接收一个 null 异常。
+    * onCompletion 的主要优点是其 lambda 表达式的可空参数 Throwable 可以用于确定上游的流是正常完成还是有异常发生
+    * 与 catch() 操作符的另一个不同点是 onCompletion 能观察到**所有异常并且仅在上游流成功完成**（没有取消或失败）的情况下接收一个 null 异常。**并没有验证到**，在下游发射一次后，还是打印的null
 
 检测流取消
 流时可以被取消的，**如何检查流的取消** `FlowFeaturesCancel_Check.kt`
 
 1. 繁忙的流可以检查到取消(`flow{}`)，
-2. 非繁忙的流(`asFlow()`、`flowOf()`)也可以转为为可以取消（`.cancelable()`）的方式，在进行取消
+2. 非繁忙的流(`asFlow()`、`flowOf()`)也可以转为为可以取消（`.cancelable()`）的方式，在进行取消。**并没有cancelable()**方法。
