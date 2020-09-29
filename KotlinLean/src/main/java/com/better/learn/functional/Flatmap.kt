@@ -1,4 +1,4 @@
-package com.better.learn.kotlin.functional
+package com.better.learn.functional
 
 fun main() {
     val list = listOf(1, 2, 3)

@@ -1,4 +1,4 @@
-package com.better.learn.kotlin.collections
+package com.better.learn.collections
 
 fun main() {
     val a1 = arrayListOf(1, 2, 3, 4)

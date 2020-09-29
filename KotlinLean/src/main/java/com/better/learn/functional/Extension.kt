@@ -1,4 +1,4 @@
-package com.better.learn.kotlin.functional
+package com.better.learn.functional
 
 /**
  * Created by better on 2019/6/13.

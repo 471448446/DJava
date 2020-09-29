@@ -1,4 +1,4 @@
-package com.better.learn.kotlin.collections
+package com.better.learn.collections
 
 fun main() {
     val l = mutableListOf(1, 2, 3, 22, 1, 4, 4, 3, 2)
