@@ -1,3 +1,9 @@
+工具版本
+```
+IntelliJ IDEA 2020.3 (Community Edition)
+Build #IC-203.5981.155, built on December 1, 2020
+```
+
 [Flow](https://www.kotlincn.net/docs/reference/coroutines/flow.html)
 > 挂起函数可以异步的返回单个值，但是该如何异步返回多个计算好的值呢？这正是 Kotlin 流（Flow）的用武之地。
 
@@ -6,7 +12,7 @@
 这篇文章主要介绍了涉及到流的一些基础概念。流的构建，流的上下文，以及流的一些特性，比如冷的、可以被取消的、连续的。再对流运用一些操作符进行处理。最后如何检测流的异常、取消、完成。
 
 创建多个值
-1. 集合，需要一次性返回所有的值。`CreateMutiValue1_Collection.kt`
+1. ###### 集合，需要一次性返回所有的值。`CreateMutiValue1_Collection.kt`
 2. 序列，分批次返回多个值。可以执行耗时操作，但是会阻塞当前线程。`CreateMutiValue2_Sequence.kt`
 3. 使用suspend 来返回集合，虽然可以执行耗时操作，但是结果需要一次返回。`CreateMutiValue3_Suspend.kt`
 4. Flow,使用流来表示多个值。可以执行耗时操作，内部使用协程来实现。`CreateMutiValue4_Flow.kt`
@@ -17,7 +23,7 @@
 3. 使用 ` .asFlow()` 扩展函数，可以将各种集合与序列转换为流。
 
 流特性：
-1. 流是冷的。只有当有末端操作符，消耗数据时，才会触发流的发射。`FlowFeaturesCold.kt`
+1. # 流是冷的。只有当有末端操作符，消耗数据时，才会触发流的发射。`FlowFeaturesCold.kt`
 2. 流是可以取消的。流是运行在协程中，协程中suspend方法取消时，流就取消了。`FlowFeaturesCancel.kt`
 3. 流是连续的。流中的值，从起点，经过各种流操作符，最后到达末端操作符消耗。每个值执行完成后，才执行下一个（**顺序执行**）。
 执行完成的意思是直到有末端收集器使用才算完成。连续的意思是，每个一次执行，每一个执行的时候，
@@ -54,6 +60,7 @@
     1. 组合两个流zip()。严格按照index一一对应，多的会被丢弃。`FlowOperatorCombine_Zip.kt`
     2. 组合两个流combine()。并不是按照index一一对应，采用响应流的最新值进行组合，原始流每变化一次，都会触发一次组装。**这个就很不一样了**。
     这个更像是结合的意思，只要有就可以，没有时，先等到另外一个值有才结合。`FlowOperatorCombine_Combine.kt`
+    3. merge()。将多个流合并在一起，流集合中的每一个发生变化，终端处都会收到对应的值。和combine不一样，它是将两个流中最新的值进行结合，结合后得出最终的值。`FlowOperatorCombine_merge.kt`
 7. 展平流，如何处理包含流的流。
 有点绕口，就是发送端是流`flow{}`，这个没有异议，它发生的是另外的流Flow。例如，我们得到了一个包含流的流（Flow<Flow<String>>），
 需要将其进行展平为单个流以进行下一步处理。
