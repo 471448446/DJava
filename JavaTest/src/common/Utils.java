@@ -1,9 +1,5 @@
 package common;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-
 /**
  * 常用方法
  *
@@ -40,6 +36,14 @@ public class Utils {
 
     public static void logThread(String msg) {
         System.out.println(Thread.currentThread().getName() + " " + msg);
+    }
+
+    public static String string(int[] data) {
+        StringBuilder s = new StringBuilder();
+        for (int datum : data) {
+            s.append(datum).append(",");
+        }
+        return s.toString();
     }
 
 
