@@ -46,5 +46,13 @@ public class Utils {
         return s.toString();
     }
 
+    public static String string(Object[] data) {
+        StringBuilder s = new StringBuilder();
+        for (Object datum : data) {
+            s.append(datum).append(",");
+        }
+        return s.toString();
+    }
+
 
 }
