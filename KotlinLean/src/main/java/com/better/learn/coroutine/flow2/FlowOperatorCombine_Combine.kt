@@ -15,6 +15,7 @@ fun main() {
         // 每 400 毫秒发射一次字符串
         val strs = flowOf("one", "two", "three").onEach { delay(400) }
         /*========zip========*/
+        println("zip")
         // 使用zip每一个会耗时400毫秒
         val startTime = System.currentTimeMillis() // 记录开始的时间
         nums.zip(strs) { a, b -> "$a -> $b" } // 使用“zip”组合单个字符串
@@ -23,6 +24,7 @@ fun main() {
                 println("$value at ${System.currentTimeMillis() - startTime} ms from start")
             }
         /*========combine========*/
+        println("combine")
         // 使用combine每当有值发生变化时，都会触发一次收集
         val startTime2 = System.currentTimeMillis() // 记录开始的时间
         nums.combine(strs) { a, b -> "$a -> $b" } // 使用“combine”组合单个字符串

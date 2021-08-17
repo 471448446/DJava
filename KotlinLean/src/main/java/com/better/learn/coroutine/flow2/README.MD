@@ -43,8 +43,16 @@ Build #IC-203.5981.155, built on December 1, 2020
 
 流操作符 流与序列的主要区别在于这些操作符中的代码可以调用挂起函数。
 
-1. 过度操作符。map、filter。可以使用操作符转换流，就像使用集合与序列一样。过渡操作符应用于上游流，并返回下游流。 这些**操作符也是冷操作符**
+转换（map、transform）
+条件过滤（filter，drop，dropWhile，take）
+加速（buffer，conflate,collectLatest）
+组合（zip，combine，merge）
+打平（flatMapContract、flatMapMerge）
+最后是接收（collect，toList、toSet，first，single，reduce，fold，launchIn）
+1. 过度操作符。
+   * map、filter。可以使用操作符转换流，就像使用集合与序列一样。过渡操作符应用于上游流，并返回下游流。 这些**操作符也是冷操作符**
    ，就像流一样。这类操作符本身不是挂起函数。它运行的速度很快，返回新的转换流的定义。`FlowOperatorMap.kt`
+   * 丢弃[`FlowOperatoDrop.kt`](FlowOperatoDrop.kt) `drop(count)`，`dropWhile(predicate)`，丢弃流中的一些值
 2. 转换操作符。transform,它可以用来模仿简单的转换，例如 map 与 filter，以及实施更复杂的转换。`FlowOperatorTransform.kt`
    使用 transform 操作符，我们可以** 发射 任意值任意次**。
 3. 限长操作符。限长过渡操作符（例如 take）在流触及相应限制的时候会将它的执行取消。协程中的取消操作总是通过抛出异常来执行 这样可以通过catch来获取异常，当然，也可以不处理。`FlowOperatorTake.kt`
