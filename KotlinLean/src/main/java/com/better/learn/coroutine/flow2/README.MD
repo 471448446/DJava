@@ -48,7 +48,7 @@ Build #IC-203.5981.155, built on December 1, 2020
 加速（buffer，conflate,collectLatest）
 组合（zip，combine，merge）
 打平（flatMapContract、flatMapMerge）
-最后是接收（collect，toList、toSet，first，single，reduce，fold，launchIn）
+最后是接收（collect，toList、toSet，first，single，reduce，fold，launchIn）由于流是冷的，所以每触发一次接收操作，流都会被构建依次，意味着流会再次开始工作[`Flow_emitAll.kt`](Flow_emitAll.kt)。
 1. 过度操作符。
    * map、filter。可以使用操作符转换流，就像使用集合与序列一样。过渡操作符应用于上游流，并返回下游流。 这些**操作符也是冷操作符**
    ，就像流一样。这类操作符本身不是挂起函数。它运行的速度很快，返回新的转换流的定义。`FlowOperatorMap.kt`
