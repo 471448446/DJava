@@ -5,6 +5,7 @@ package com.better.learn.reflection;
  */
 public class ReflectionSeeGeneric {
     public static void main(String[] args) throws Exception {
+        SeeGenericDeclaration.test();
         System.out.println("TypeVariableSee--------------------------");
         SeeTypeVariable.test();
         System.out.println("ParameterizedTypeSee--------------------------");

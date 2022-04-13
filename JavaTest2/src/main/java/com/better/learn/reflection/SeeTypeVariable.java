@@ -58,4 +58,22 @@ public class SeeTypeVariable<K extends Comparable & Serializable, T> {
             System.out.println("annotatedBound: " + annotatedBound);
         }
     }
+
+    public static void printTypeVariable(TypeVariable typeVariable) {
+        System.out.println("printTypeVariable()----");
+        // 泛型变量申明的类，既在那个类中申明了这个泛型变量
+        System.out.println("Generic Declaration: " + typeVariable.getGenericDeclaration());
+        // 泛型变量的名称
+        System.out.println("Generic name: " + typeVariable.getName());
+        // 泛型变量的上限，默认是Object
+        System.out.println("Generic up info: ");
+        for (Type bound : typeVariable.getBounds()) {
+            System.out.println(bound.getTypeName());
+        }
+        // 这个也是获取上限，只不过用的AnnotatedType
+        System.out.println("generic AnnotatedBounds: ");
+        for (AnnotatedType annotatedBound : typeVariable.getAnnotatedBounds()) {
+            System.out.println(annotatedBound.getType());
+        }
+    }
 }
