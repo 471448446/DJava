@@ -3,7 +3,7 @@ package com.better.learn.reflection;
 /**
  * 通过反射获取泛型的信息
  */
-public class ReflectionSeeGeneric {
+public class TestReflectionSeeGeneric {
     public static void main(String[] args) throws Exception {
         SeeGenericDeclaration.test();
         System.out.println("TypeVariableSee--------------------------");
