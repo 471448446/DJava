@@ -1,6 +1,6 @@
 package com.better.learn.annoation.inherited;
 
-public class SubClassWith extends BaseClassWith{
+public class SubClass extends BaseClass {
     public String field1;
 
     @Override
