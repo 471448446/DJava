@@ -1,4 +1,4 @@
-package com.better.learn.reflection;
+package com.better.learn.reflection.annotation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.GenericArrayType;

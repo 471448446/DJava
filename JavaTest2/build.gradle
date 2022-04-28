@@ -13,6 +13,10 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
+//[【IntelliJ IDEA】中文乱码问题 ( 代码乱码 | 编译乱码 | 控制台乱码 )](https://blog.csdn.net/shulianghan/article/details/102731860)
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 test {
     useJUnitPlatform()

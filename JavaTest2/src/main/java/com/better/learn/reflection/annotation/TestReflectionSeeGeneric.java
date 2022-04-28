@@ -1,4 +1,4 @@
-package com.better.learn.reflection;
+package com.better.learn.reflection.annotation;
 
 /**
  * 通过反射获取泛型的信息
