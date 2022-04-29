@@ -34,9 +34,9 @@ public class Test {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread t, Throwable e) {
-                System.out.println("!!!!!!!!crash start------------");
-                System.out.println(e.getMessage());
-                System.out.println("!!!!!!!crash end------------");
+                System.out.println(threadName() + "!!!!!!!!crash start------------");
+                System.out.println(threadName() + e.getMessage());
+                System.out.println(threadName() + "!!!!!!!crash end------------");
             }
         });
         thread0.start();
