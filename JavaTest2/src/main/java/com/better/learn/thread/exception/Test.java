@@ -1,4 +1,4 @@
-package com.better.learn.exception;
+package com.better.learn.thread.exception;
 
 public class Test {
     public static void main(String[] args) throws InterruptedException {
