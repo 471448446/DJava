@@ -1,4 +1,4 @@
-﻿package com.better.learn.object.inherited;
+package com.better.learn.object.inherited;
 
 /**
  * 菱形问题：
