@@ -31,12 +31,12 @@ public class QuickSort {
         final int L = left;
         final int R = right;
         while (left < right) {
-            //ÕÒµ±Ç°Êý×éÓÒ±ßµÄÐ¡Öµ£¬ÒÆ¶¯µ½×ó±ß
+            //æ‰¾å½“å‰æ•°ç»„å³è¾¹çš„å°å€¼ï¼Œç§»åŠ¨åˆ°å·¦è¾¹
             while (left < right && pivotValue <= array[right]) {
                 right--;
             }
             array[left] = array[right];
-            //ÕÒµ±Ç°Êý×é×ó±ßµÄ´óÖµ£¬ÒÆ¶¯µ½ÓÒ±ß
+            //æ‰¾å½“å‰æ•°ç»„å·¦è¾¹çš„å¤§å€¼ï¼Œç§»åŠ¨åˆ°å³è¾¹
             while (left < right && pivotValue >= array[left]) {
                 left++;
             }

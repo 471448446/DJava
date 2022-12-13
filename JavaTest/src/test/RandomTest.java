@@ -23,8 +23,8 @@ public class RandomTest {
 //			if(k!=)
 //		}
 
-        System.out.println("自己的异常：");
-//        throw new IllegalStateException("不合法的异常");
+        System.out.println("鑷繁鐨勫紓甯革細");
+//        throw new IllegalStateException("涓嶅悎娉曠殑寮傚父");
         System.out.println("-----------------");
         int[] percents = new int[]{100, 200, 200};
         int length = percents.length;
@@ -54,7 +54,7 @@ public class RandomTest {
 
     public static int randomWeight(int[] percents) {
         int find = -1;
-        // 没有合法数据
+        // 娌℃湁鍚堟硶鏁版嵁
         if (percents.length == 0) {
             return find;
         }
@@ -66,7 +66,7 @@ public class RandomTest {
                 valueEqualZeroCount++;
             }
         }
-        // 没有合法数据
+        // 娌℃湁鍚堟硶鏁版嵁
         if (valueEqualZeroCount == 0) {
             return find;
         }

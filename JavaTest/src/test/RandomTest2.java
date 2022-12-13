@@ -7,15 +7,15 @@ public class RandomTest2 {
 
     public static void main(String[] args) {
         System.out.println("-----------------");
-        // 每一个的比重
+        // 姣忎竴涓殑姣旈噸
         int[] percents = new int[]{100, 200, 200};
         int length = percents.length;
         int[] count = new int[length];
-        // 执行一万次
+        // 鎵ц涓�涓囨
         for (int i1 = 0; i1 < 10000; i1++) {
             int randomWeight = randomWeight(percents);
             count[randomWeight]++;
-            // 本次结果
+            // 鏈缁撴灉
 //            System.out.println("random weight " + randomWeight);
         }
         for (int j = 0; j < length; j++) {
@@ -32,7 +32,7 @@ public class RandomTest2 {
 
     public static int randomWeight(int[] percents) {
         int find = -1;
-        // 没有合法数据
+        // 娌℃湁鍚堟硶鏁版嵁
         if (percents.length == 0) {
             return find;
         }
@@ -44,7 +44,7 @@ public class RandomTest2 {
                 valueEqualZeroCount++;
             }
         }
-        // 没有合法数据
+        // 娌℃湁鍚堟硶鏁版嵁
         if (valueEqualZeroCount == 0) {
             return find;
         }

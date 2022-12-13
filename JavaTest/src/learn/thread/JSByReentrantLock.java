@@ -18,13 +18,13 @@ public class JSByReentrantLock {
     }
 
     private static void useTime() {
-        //Ã»ÓĞÏŞÊ±Á½¸ö¶¼Ö´ĞĞÁË
+        //æ²¡æœ‰é™æ—¶ä¸¤ä¸ªéƒ½æ‰§è¡Œäº†
         TimeRunnable runnable = new TimeRunnable();
         new Thread(runnable, "ThreadA").start();
         new Thread(runnable, "ThreadB").start();
-        //ÏŞÊ±Ö»Ö´ĞĞÒ»¸ö
+        //é™æ—¶åªæ‰§è¡Œä¸€ä¸ª
         /**
-         * Á½¸öÏß³ÌÍ¬Ê±¶¼ÑÓÊ±1Ãë»ñÈ¡Ëø£¬ÏÈ»ñÈ¡µÄºóÃæµÄ¾Í»ñÈ¡²»µ½ÁË¡£
+         * ä¸¤ä¸ªçº¿ç¨‹åŒæ—¶éƒ½å»¶æ—¶1ç§’è·å–é”ï¼Œå…ˆè·å–çš„åé¢çš„å°±è·å–ä¸åˆ°äº†ã€‚
          */
         TimeTryRunnable runnableTry = new TimeTryRunnable();
         new Thread(runnableTry, "ThreadATry").start();
@@ -83,7 +83,7 @@ public class JSByReentrantLock {
         public void run() {
             for (int i1 = 0; i1 < 10000; i1++) {
                 lock.lock();
-                //¿ÉÖØÈë
+                //å¯é‡å…¥
                 lock.lock();
                 try {
                     i++;

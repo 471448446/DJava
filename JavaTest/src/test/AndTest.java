@@ -3,7 +3,7 @@ package test;
 import common.Utils;
 
 /**
- * Çø±ð &Óë&& Çø±ð
+ * åŒºåˆ« &ä¸Ž&& åŒºåˆ«
  *
  * @author Better
  */
@@ -33,7 +33,7 @@ public class AndTest {
     }
 
     /**
-     * &ÊÇÒ»¸ö¸öµÄÖ´ÐÐ
+     * &æ˜¯ä¸€ä¸ªä¸ªçš„æ‰§è¡Œ
      */
     private static void testAnd() {
         String andStr = null;

@@ -1,7 +1,7 @@
 package algorithm.linear.list;
 
 /**
- * Á´±íµÄ»ù±¾²Ù×÷
+ * é“¾è¡¨çš„åŸºæœ¬æ“ä½œ
  * Created by better on 2017/4/18.
  */
 interface IList {

@@ -4,9 +4,9 @@ package algorithm.linear.list;
  * Created by better on 2017/4/18.
  */
 public class Node {
-    /* Êı¾İ  --better 2017/4/18 22:14. */
+    /* æ•°æ®  --better 2017/4/18 22:14. */
     private Object data;
-    /* ÏÂÒ»¸ö½ÚµãĞÅÏ¢  --better 2017/4/18 22:14. */
+    /* ä¸‹ä¸€ä¸ªèŠ‚ç‚¹ä¿¡æ¯  --better 2017/4/18 22:14. */
     private Node next;
 
     public Node(Object data) {

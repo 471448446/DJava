@@ -1,7 +1,7 @@
 package common;
 
 /**
- * 常用方法
+ * 甯哥敤鏂规硶
  *
  * @author better
  */

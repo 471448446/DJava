@@ -50,7 +50,7 @@ public class ThreadAction {
         t.start();
 
         try {
-            //Ö÷Ïß³ÌÍ£ÏÂ1ºÁÃë£¬¸øtÏß³ÌÖ´ĞĞ1ºÁÃë¡£
+            //ä¸»çº¿ç¨‹åœä¸‹1æ¯«ç§’ï¼Œç»™tçº¿ç¨‹æ‰§è¡Œ1æ¯«ç§’ã€‚
             Thread.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ class ThreadActionJoin extends Thread {
     public void run() {
         super.run();
         for (int i = 1; i < 10; i++) {
-            System.out.println(getName() + getId() + "Ö´ĞĞÁË" + ++this.i + "´Î");
+            System.out.println(getName() + getId() + "æ‰§è¡Œäº†" + ++this.i + "æ¬¡");
         }
     }
 }
@@ -97,13 +97,13 @@ class ThreadActionSleep extends Thread {
 
 class Test {
     public synchronized void test() {
-        Utils.log(Thread.currentThread().getName() + "__×¼±¸test£¬ÏÈĞİÃß1000");
+        Utils.log(Thread.currentThread().getName() + "__å‡†å¤‡testï¼Œå…ˆä¼‘çœ 1000");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Utils.log(Thread.currentThread().getName() + "__»Ö¸´");
+        Utils.log(Thread.currentThread().getName() + "__æ¢å¤");
     }
 }
 
@@ -120,7 +120,7 @@ class ThreadActionYield extends Thread {
     public void run() {
         super.run();
         while (!isInterrupted()) {
-            Utils.log(name + ",Ö´ĞĞ£º" + ++i);
+            Utils.log(name + ",æ‰§è¡Œï¼š" + ++i);
             if (i % 10 == 0) {
                 yield();
             }
@@ -138,6 +138,6 @@ class ThreadActionInterrupt extends Thread {
             Utils.log("_wait_Interrupt:" + i);
             i++;
         }
-        Utils.log("Interrupted¡£" + isInterrupted() + "," + interrupted() + "£¬" + interrupted());
+        Utils.log("Interruptedã€‚" + isInterrupted() + "," + interrupted() + "ï¼Œ" + interrupted());
     }
 }

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ²»Í¬Ïß³Ì²Ù×÷Í³Ò»×ÊÔ´£¬µ«ÊÇ¶¯×÷²»Í¬¡£
- * ±ÈÈçÒ»¸öÊéµêÀïÃæ£¬²»¶ÏµÄÓÐÈËËÍÊéÀ´£¬ÓÖÓÐ¿ÍÈË²»¶ÏµÄ½«ÊéÂò×ß¡£Èç¹ûÓÃÓïÑÔÀ´ÃèÊöÍ¼ÊéµÄ±ä»¯
- * ÔËÐÐ·¢ÏÖÓÐºÜ¶àÐÅÏ¢
+ * ä¸åŒçº¿ç¨‹æ“ä½œç»Ÿä¸€èµ„æºï¼Œä½†æ˜¯åŠ¨ä½œä¸åŒã€‚
+ * æ¯”å¦‚ä¸€ä¸ªä¹¦åº—é‡Œé¢ï¼Œä¸æ–­çš„æœ‰äººé€ä¹¦æ¥ï¼Œåˆæœ‰å®¢äººä¸æ–­çš„å°†ä¹¦ä¹°èµ°ã€‚å¦‚æžœç”¨è¯­è¨€æ¥æè¿°å›¾ä¹¦çš„å˜åŒ–
+ * è¿è¡Œå‘çŽ°æœ‰å¾ˆå¤šä¿¡æ¯
  * Created by better on 2017/10/18.
  */
 public class Communicate1 {
@@ -30,7 +30,7 @@ public class Communicate1 {
         @Override
         public void run() {
             while (true) {
-                station.addBook("Í¼Êé£º" + System.currentTimeMillis());
+                station.addBook("å›¾ä¹¦ï¼š" + System.currentTimeMillis());
             }
         }
     }
@@ -63,7 +63,7 @@ public class Communicate1 {
                 Utils.log("sell=>" + books.get(0));
                 books.remove(0);
             } else {
-                Utils.log("ÒÑÊÛÍê");
+                Utils.log("å·²å”®å®Œ");
             }
         }
     }

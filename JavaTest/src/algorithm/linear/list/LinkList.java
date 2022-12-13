@@ -1,11 +1,11 @@
 package algorithm.linear.list;
 
 /**
- * Á´ÊÔ´æ´¢½á¹¹ javaÖĞ ArrayListÊÇÓÃµÄÒ»¸öÊı×éÀ´Î¬»¤£¬Ë³Ğò´æ´¢½á¹¹
+ * é“¾è¯•å­˜å‚¨ç»“æ„ javaä¸­ ArrayListæ˜¯ç”¨çš„ä¸€ä¸ªæ•°ç»„æ¥ç»´æŠ¤ï¼Œé¡ºåºå­˜å‚¨ç»“æ„
  * Created by better on 2017/4/18.
  */
 public class LinkList implements IList {
-    /* Í·½Úµã  --better 2017/4/18 22:10. */
+    /* å¤´èŠ‚ç‚¹  --better 2017/4/18 22:10. */
     private Node headNode;
 
     public LinkList() {
@@ -39,7 +39,7 @@ public class LinkList implements IList {
 
     @Override
     public boolean insert(int p, Object o) {
-        /* ÒªÔÚpÎ»ÖÃ²åÈë,ÄÇÃ´Ó¦¸ÃÕÒµ½p-1µÄÎ»ÖÃ --better 2017/4/18 23:06. */
+        /* è¦åœ¨pä½ç½®æ’å…¥,é‚£ä¹ˆåº”è¯¥æ‰¾åˆ°p-1çš„ä½ç½® --better 2017/4/18 23:06. */
         checkIndex(p);
         Node pBefor = index(p - 1);
         Node insert = new Node(o);
@@ -62,7 +62,7 @@ public class LinkList implements IList {
 
     private void checkDelete(int p) {
         if (p < 0 || (int) headNode.getData() <= p) {
-            throw new IndexOutOfBoundsException("Á´±í³¤¶È²»¹» " + outOfBoundsMsg(p));
+            throw new IndexOutOfBoundsException("é“¾è¡¨é•¿åº¦ä¸å¤Ÿ " + outOfBoundsMsg(p));
         }
     }
 
@@ -79,7 +79,7 @@ public class LinkList implements IList {
             current = current.getNext();
             i++;
         }
-        /* ²Ù×÷Í·Ö¸Õë£¬¼´nullÁ´±íµÄÊ±ºò  --better 2017/4/18 23:04. */
+        /* æ“ä½œå¤´æŒ‡é’ˆï¼Œå³nullé“¾è¡¨çš„æ—¶å€™  --better 2017/4/18 23:04. */
         if (i == -1) {
             current = headNode;
         }
@@ -87,13 +87,13 @@ public class LinkList implements IList {
     }
 
     /**
-     * ²Ù×÷Î»ÖÃpÊÇ·ñºÏ·¨
+     * æ“ä½œä½ç½®pæ˜¯å¦åˆæ³•
      *
-     * @param p Î»ÖÃ
+     * @param p ä½ç½®
      */
     private void checkIndex(int p) {
         if (p < 0 || (int) headNode.getData() < p) {
-            throw new IndexOutOfBoundsException("Á´±í³¤¶È²»¹» " + outOfBoundsMsg(p));
+            throw new IndexOutOfBoundsException("é“¾è¡¨é•¿åº¦ä¸å¤Ÿ " + outOfBoundsMsg(p));
         }
     }
 

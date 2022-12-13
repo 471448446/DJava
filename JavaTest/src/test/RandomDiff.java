@@ -17,7 +17,7 @@ public class RandomDiff {
 		for (int j=0;j<size;j++){
 			do{
 				i=getRandom(0,max);
-				System.out.println("µÃµ½Ëæ»úÊý="+i);
+				System.out.println("å¾—åˆ°éšæœºæ•°="+i);
 			}while (isEqual(diff,i,j));
 		}
 
@@ -30,7 +30,7 @@ public class RandomDiff {
 			is=item==random;
 //			if(item==random)break;
 			if(is)break;
-			System.out.println("Ñ­»·Öµ="+item+",µ±Ç°´óÑ­»·Î»ÖÃ="+current+","+is);
+			System.out.println("å¾ªçŽ¯å€¼="+item+",å½“å‰å¤§å¾ªçŽ¯ä½ç½®="+current+","+is);
 		}
 		System.out.println("isEqual="+is);
 		if(!is) diff[current]=random;

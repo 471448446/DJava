@@ -3,7 +3,7 @@ package learn.oclass.initorder;
 import common.Utils;
 
 /**
- * ¸¸ÀàÖĞ¶¨ÒåµÄ¾²Ì¬Óï¾ä¿éÒªÓÅÓÚ×ÓÀàµÄ±äÁ¿¸³Öµ²Ù×÷
+ * çˆ¶ç±»ä¸­å®šä¹‰çš„é™æ€è¯­å¥å—è¦ä¼˜äºå­ç±»çš„å˜é‡èµ‹å€¼æ“ä½œ
  * Created by better on 2018/3/5.
  */
 public class ClassVariableInit {

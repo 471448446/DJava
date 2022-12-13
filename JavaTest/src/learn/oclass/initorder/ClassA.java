@@ -5,39 +5,39 @@ import common.Utils;
 
 
 /**
- * Ë³Ğò£º¾²Ì¬>³ÉÔ±ºÍ´úÂë¿é>¹¹Ôìº¯Êı
+ * é¡ºåºï¼šé™æ€>æˆå‘˜å’Œä»£ç å—>æ„é€ å‡½æ•°
  * <p>
  * Created by better on 2018/3/4.
  */
 public class ClassA {
-    public static String sAFiled = "¾²Ì¬±äÁ¿";
+    public static String sAFiled = "é™æ€å˜é‡";
 
     static {
         l(sAFiled);
-        l("¾²Ì¬´úÂë¿é");
+        l("é™æ€ä»£ç å—");
     }
 
-    public static String sAFiled2 = "¾²Ì¬±äÁ¿2";
+    public static String sAFiled2 = "é™æ€å˜é‡2";
 
     static {
         l(sAFiled2);
-        l("2¾²Ì¬´úÂë¿é");
+        l("2é™æ€ä»£ç å—");
     }
 
 
-    private String mAFiled = "±äÁ¿";
+    private String mAFiled = "å˜é‡";
 
     {
         l(mAFiled);
-        l("´úÂë¿é");
+        l("ä»£ç å—");
     }
 
     public ClassA() {
-        l("¹¹Ôìº¯Êı");
+        l("æ„é€ å‡½æ•°");
     }
 
     {
-        l("A ¹¹Ôìº¯ÊıºóÃæµÄ´úÂë¿é£º" + mAFiled);
+        l("A æ„é€ å‡½æ•°åé¢çš„ä»£ç å—ï¼š" + mAFiled);
     }
 
     public static void main(String[] args) {
