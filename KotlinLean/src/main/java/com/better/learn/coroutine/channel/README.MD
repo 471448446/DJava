@@ -14,12 +14,11 @@ Channel（通道）是kotlin中用于协程间通信的工具。在不同协程�
 构建通道
 协程生成一系列元素的模式很常见。 这是 **生产者——消费者** 模式的一部分，并且经常能在并发的代码中看到它。 你可以将生产者抽象成一个函数，并且使通道作为它的参数，但这与必须从函数中返回结果的常识相违悖。
 1. 通过构造方法`Channel<>()`创建。根据Channel的容量有区别的，以及折叠未处理的值，取最新的值。[Channel_Create.kt](Channel_Create.kt)
-    1. （无限容量）管道无缓存大小限制。既是send不会等待，可以无限的放数据。管道中数据过多，会OOM。而接收端，在没有数据的时候会等待。`val unlimitedChannel = Channel<String>()`
+    1. （无限容量）管道无缓存大小限制。既是send不会等待，可以无限的放数据。管道中数据过多，会OOM。而接收端，在没有数据的时候会等待。`val unlimitedChannel = Channel<String>(UNLIMITED)`
     2. （有容量限定）管道有缓存大小限制。当到达管道大小限制后，发送端无法再发送数据，会等待，协程被挂起。等到接收端消耗数据后，才能继续发送。`val bufferedChannel = Channel<String>(10)`
-    3.
-    （没有容量）实时管道。管道是没有缓存大小的。所谓实时就是希望数据立马被消耗。如果发送了数据，没有接收者，那么发送放会等待。如果准备接收数据，发现没有已经发送的数据，那么接收方会等待。这样发送或者接收方，总是会等待，直到另外一方调用。`val rendezvousChannel = Channel<String>(UNLIMITED)`
+    3. （没有容量）实时管道。管道是没有缓存大小的。所谓实时就是希望数据立马被消耗。如果发送了数据，没有接收者，那么发送方会等待。如果准备接收数据，发现没有已经发送的数据，那么接收方会等待。这样发送或者接收方，总是会等待，直到另外一方调用。`val rendezvousChannel = Channel<String>(RENDEZVOUS)`
     4. （折叠最新的）合并管道。管道中数据是最新的。既接收方，接收到的数据始终是发送方最新发送的。`val conflatedChannel = Channel<String>(CONFLATED)`
-2. 使用`produce{}`函数构建生产者通道。这就有点意思了，跟Flow一样返回的是一个代表一系列值得对象。[`ChannelConstructor.kt`](ChannelConstructor.kt)
+2. 使用`produce{}`函数构建生产者通道。这就有点意思了，跟Flow一样返回的是一个代表一系列值得对象。[`ChannelConstructor.kt`](Channel_Create_Constructor.kt)
 
 
 通道的特性：
@@ -32,7 +31,7 @@ Channel（通道）是kotlin中用于协程间通信的工具。在不同协程�
     * 缓冲允许发送者在被挂起前发送多个元素， 就像 BlockingQueue 有指定的容量一样，当缓冲区被占满的时候将会引起阻塞。
 
 通道的使用
-通过`channel.send()` 发送数据,通过`channel.receive()`接受数据。两者都是suspend方法，可以被挂起。接收方可以制定接受次数`repeat()`，也可以在迭代器中一直接受`for(x in channel)`
+通过`channel.send()` 发送数据,通过`channel.receive()`接受数据。两者都是suspend方法，可以被挂起。接收方可以指定接受次数`repeat()`，也可以在迭代器中一直接受`for(x in channel)`
 1. 被另外一个通道消耗。我觉得这里是想说，通道中得元素可以在另外一个通道中消耗吧，这样无形中就来了一次转换map操作。[`Channel_Use_Channel.kt`](Channel_Use_Channel.kt)
 2. 利用通道来求素数。不是很明白这个用法。[`Channel_Use_Prime.kt`](Channel_Use_Prime.kt)
 3. 多个协程间的使用，见扇出和扇入
