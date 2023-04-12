@@ -9,21 +9,17 @@ import kotlinx.coroutines.withContext
 
 /**
  * 在调用处的上下文中进行
+ * 流的收集总是在调用协程的上下文中发生。例如，如果有一个流 simple，然后以下代码在它的编写者指定的上下文中运行，而无论流 simple 的实现细节如何
  */
 fun main() {
     runBlocking {
+        // collect发生的上下文，就是流发送的上下文
+        // 直接在Main中收集
         simpleContext().collect { value -> logThread("Collected $value") }
         logThread("-----------")
-        // 上下文不一样导致异常
+        // collect指定了在Dispatchers.Default中运行，simpleContext()也在Dispatchers.Default中运行
         withContext(Dispatchers.Default) {
-            simpleContext2().collect { value -> logThread("Collected $value") }
-        }
-        logThread("-----------")
-        // 下面的两种方式都会报错
-        simpleContext2().collect { value -> logThread("Collected $value") }
-        logThread("-----------")
-        withContext(Dispatchers.IO) {
-            simpleContext2().collect { value -> logThread("Collected $value") }
+            simpleContext().collect { value -> logThread("Collected $value") }
         }
     }
 }
